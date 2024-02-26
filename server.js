@@ -30,6 +30,36 @@ db.once("open", ()=>{
     init()
 })
 
+async function init(){
+    try{
+        let user  = await user_model.findOne({userId : "admin"})
+
+       if(user){
+          console.log("Admin is already present")
+          return
+        }
+
+    }catch(err){
+        console.log("Error while reading the data", err)
+    }
+    
+
+    try{
+      user = await user_model.create({
+        name : "Rajan",
+        userId : "admin",
+        email : "its1.rajan@gmail.com",
+        userType : "ADMIN",
+        password : bcrypt.hashSync("Welcome1",8)
+      })
+      console.log("Admin created ", user)
+
+
+    }catch(err){
+        console.log("Error while create admin", err)
+    }
+}
+
 /**
  * Start the server
  */

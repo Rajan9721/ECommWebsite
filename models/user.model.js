@@ -2,6 +2,15 @@ const mongoose = require("mongoose")
 
 /**
  * 
+ * We are create the bellow forms
+ * 
+ * name
+ * userId
+ * password
+ * email
+ * userType
+ * 
+ * 
  */
 
 const userSchema = new mongoose.Schema({
